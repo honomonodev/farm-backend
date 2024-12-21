@@ -1,0 +1,43 @@
+{
+    "name": "farm-backend",
+    "version": "1.0.0",
+    "description": "Farm backend project using NestJS",
+    "main": "dist/main.js",
+    "scripts": {
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "build": "nest build",
+        "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+        "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:cov": "jest --coverage",
+        "test:e2e": "jest --config ./test/jest-e2e.json"
+    },
+    "dependencies": {
+        "@nestjs/common": "^8.0.0",
+        "@nestjs/core": "^8.0.0",
+        "@nestjs/graphql": "^9.0.0",
+        "@nestjs/platform-express": "^8.0.0",
+        "graphql": "^15.0.0",
+        "reflect-metadata": "^0.1.13",
+        "rxjs": "^7.0.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.26.4",
+        "@babel/core": "^7.26.0",
+        "@nestjs/cli": "^8.0.0",
+        "@nestjs/schematics": "^8.0.0",
+        "@nestjs/testing": "^8.0.0",
+        "@types/jest": "^27.0.0",
+        "@types/node": "^16.0.0",
+        "@types/supertest": "^2.0.0",
+        "jest": "^27.0.0",
+        "prettier": "^2.0.0",
+        "ts-jest": "^27.0.0",
+        "ts-loader": "^9.0.0",
+        "ts-node": "^10.0.0",
+        "tsconfig-paths": "^3.0.0",
+        "typescript": "^4.0.0"
+    }
+}
