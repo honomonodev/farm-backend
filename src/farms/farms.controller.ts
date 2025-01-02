@@ -12,7 +12,7 @@ constructor(private readonly farmsService: FarmsService) {}
     }
 
     @Get(':id')
-    getFarmById(@Param('id', ParseIntPipe) id: number) {
+    getFarmById(@Param('id') id: string) {
         
       return this.farmsService.findOneById(id);
     }
