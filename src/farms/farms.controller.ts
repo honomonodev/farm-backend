@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
 import { FarmsService } from './farms.service';
 
 
@@ -12,7 +12,7 @@ constructor(private readonly farmsService: FarmsService) {}
     }
 
     @Get(':id')
-    getFarmById(@Param('id') id: string) {
+    getFarmById(@Param('id', new ParseUUIDPipe({version:'4'})) id: string) {
         
       return this.farmsService.findOneById(id);
     }
