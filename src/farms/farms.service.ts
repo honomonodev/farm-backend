@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
 
 import { Farm } from './interfaces/farm.interface';
-import { CreateFarmDto } from './dto/create-farm.dto';
+import { CreateFarmDto, UpdateFarmDto } from './dto/index';
 
 @Injectable()
 export class FarmsService {
@@ -52,5 +52,14 @@ export class FarmsService {
         };
         this.farms.push(newFarm);
         return newFarm;
+    }
+
+    update(id:string, updateFarmDto: UpdateFarmDto){
+       
+        const farm = this.findOneById(id);
+        return {
+            ...farm,
+            ...updateFarmDto,
+        };
     }
 }

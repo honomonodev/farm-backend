@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { FarmsService } from './farms.service';
 import { CreateFarmDto } from './dto/create-farm.dto';
+import { UpdateFarmDto } from './dto/update-farm.dto';
 
 
 @Controller('farms')
@@ -27,10 +28,10 @@ constructor(private readonly farmsService: FarmsService) {}
 
     @Patch(':id')
     updateFarm(
-        @Param('id', ParseIntPipe) id: number, 
-        @Body() body: any) 
+        @Param('id', ParseUUIDPipe) id: string, 
+        @Body() updateFarmDto: UpdateFarmDto) 
         {
-        return body;
+        return this.farmsService.update(id, updateFarmDto);
         }
 
     @Delete(':id')
