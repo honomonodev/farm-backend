@@ -1,6 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Farm } from './interfaces/farm.interface';
 import { v4 as uuid } from 'uuid';
+
+import { Farm } from './interfaces/farm.interface';
+import { CreateFarmDto } from './dto/create-farm.dto';
 
 @Injectable()
 export class FarmsService {
@@ -42,5 +44,13 @@ export class FarmsService {
             throw new NotFoundException(`Farm with id ${id} not found.`);}
         return farm;
         
+    }
+    create(createFarmDto: CreateFarmDto) {
+        const newFarm: Farm = {
+            id: uuid(),
+            ...createFarmDto,
+        };
+        this.farms.push(newFarm);
+        return newFarm;
     }
 }

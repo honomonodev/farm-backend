@@ -22,7 +22,7 @@ constructor(private readonly farmsService: FarmsService) {}
     @Post()
 
     createFarm(@Body() createFarmDto: CreateFarmDto) {
-        return createFarmDto;
+        return this.farmsService.create(createFarmDto);
     }
 
     @Patch(':id')
